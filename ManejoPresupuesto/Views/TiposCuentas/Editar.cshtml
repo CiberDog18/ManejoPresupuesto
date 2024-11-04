@@ -1,0 +1,39 @@
+﻿@*
+    Se espera que la vista reciba un solo objeto de tipo TipoCuenta
+*@
+@model TipoCuenta
+
+@{
+    ViewData["Title"] = "Editar Tipo Cuenta";
+
+}
+
+<h1>Editar Tipo Cuenta: @Model.Nombre</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<!-- Un contenedor que muestra un resumen de todos los errores de validación del modelo.
+Los errores se mostrarán en color rojo debido a la clase 'text-danger'. -->
+
+<!-- Inicio del formulario. Cuando se envía, se invoca la acción 'Editar' del controlador. -->
+<form asp-action="Editar">
+    <!-- Un campo de entrada oculto que almacena el ID del 'TipoCuenta'.
+    El atributo 'asp-for' vincula este campo de entrada con la propiedad 'id' del modelo. -->
+    <input type="hidden" asp-for="id" />
+    <div class="mb-3">
+        <!-- Etiqueta para el campo de entrada 'Nombre'.
+        El atributo 'asp-for' vincula esta etiqueta con la propiedad 'Nombre' del modelo. -->
+        <label asp-for="Nombre" class="form-label"></label>
+        <input type="text" asp-for="Nombre" class="form-control" />
+        <!-- Un contenedor que muestra los errores de validación para el campo 'Nombre'.
+        Los errores se mostrarán en color rojo debido a la clase 'text-danger'. -->
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

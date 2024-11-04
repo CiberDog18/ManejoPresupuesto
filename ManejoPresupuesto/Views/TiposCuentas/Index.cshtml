@@ -1,0 +1,93 @@
+﻿@model IEnumerable<TipoCuenta>
+@*
+    Se espera que la vista reciba una colección de objetos TipoCuenta
+*@
+@{
+    ViewData["Title"] = "Tipos Cuentas";
+}
+
+<h1>Tipos de Cuentas</h1>
+<h5>
+    El tipo de cuenta se refiere a cómo podemos agrupar cuentas.
+    Ejemplos: Préstamos, tarjetas de crédito, etc.
+</h5>
+
+<a asp-action="Crear" class="btn btn-primary mb-3">Crear nuevo</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Acciones</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <!-- El bucle 'foreach' se utiliza para generar una fila en la tabla HTML para cada 'TipoCuenta' en la colección 'Model'. -->
+    <tbody id="reordenable">
+        @foreach (var tipoCuenta in Model)
+        {
+            <tr>
+                <td>
+                    <!-- Un campo de entrada oculto que almacena el ID del 'TipoCuenta' actual. -->
+                    <input type="hidden" value="@tipoCuenta.id" class="ids" />
+                    <!-- Un enlace que actúa como botón para editar el 'TipoCuenta' actual.
+                    El atributo 'asp-action' indica que la acción del controlador a invocar es 'Editar'.
+                    El atributo 'asp-route-id' pasa el ID del 'TipoCuenta' actual a la acción del controlador. -->
+                    <a class="btn btn-primary" asp-action="Editar" asp-route-id="@tipoCuenta.id">Editar</a>
+                    <a class="btn btn-danger" asp-action="Eliminar" asp-route-id="@tipoCuenta.id">Borrar</a>
+                </td>
+                <td>
+                    <!-- Muestra el nombre del 'TipoCuenta' actual. -->
+                    @tipoCuenta.Nombre
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+@section Scripts {
+    <script>
+        const urlOrdenar = '@Url.Action("ordenar")';
+
+        $(function () {
+            $("#reordenable").sortable({
+                stop: async function (e, ui) {
+                    await actualizarOrdenes();
+                }
+            });
+            async function actualizarOrdenes() {
+                const ids = obtenerIdElementos();
+                await enviarIdAlBackend(ids);
+
+            }
+
+            function obtenerIdElementos() {
+                const ids = $(".ids").map(function () {
+                    return $(this).val();
+                }).get();
+
+                return ids;
+            }
+
+            async function enviarIdAlBackend(ids) {
+                ;
+                var data = JSON.stringify(ids);
+
+                await fetch(urlOrdenar, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                });
+            }
+
+        });
+
+
+    </script>
+
+}
+

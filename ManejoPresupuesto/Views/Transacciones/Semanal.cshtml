@@ -1,0 +1,58 @@
+﻿@model ReporteSemanalViewModel
+@{
+    ViewData["Title"] = "Reporte Semanal";
+    // Definición de una función local en Razor que formatea una fecha en el formato "MM.dd".
+    // Esto convierte las fechas a un formato de mes y día (ejemplo: 03.25 para el 25 de marzo).
+    string FormatearFecha(DateTime fecha)
+    {
+        return fecha.ToString("MM.dd"); // Utiliza el método ToString() de DateTime para formatear la fecha.
+    }
+
+    // Crea una instancia del modelo ResumenMontosViewModel, que contiene los montos resumidos
+    // de ingresos, gastos y el balance total del reporte semanal. Los valores provienen del modelo
+    // que fue pasado a la vista.
+    var resumenMontos = new ResumenMontosViewModel()
+            {
+                Gastos = Model.Gastos, // Asigna los gastos totales del modelo de la vista.
+                Ingresos = Model.Ingresos, // Asigna los ingresos totales del modelo de la vista.
+                Total = Model.Total // Calcula y asigna el balance total (Ingresos - Gastos) desde el modelo de la vista.
+            };
+
+
+}
+
+<partial name="_Submenu" model="SubMenuTransacciones.Semanal" />
+<partial name="_NavegarPorMeses" model="@Model.FechaReferencia" />
+<partial name="_ResumenMontos" model="@resumenMontos" />
+
+<table class="table" style="font-size: 20px;">
+    <thead>
+        <tr>
+            <th>Semana</th>
+            <th style="text-align: right">Ingresos</th>
+            <th style="text-align: right">Gastos</th>
+        </tr>
+    </thead>
+    <!--// Inicia un bucle foreach que itera sobre cada elemento en la colección "TransaccionesPorSemana".
+    // Cada elemento de la colección representa las transacciones (ingresos y gastos) de una semana específica.-->
+    @foreach (var transaccionesPorSemana in Model.TransaccionPorSemana)
+    {
+
+        <tr>
+            <td>
+                <a style="text-decoration: none" asp-action="Index" asp-route-año="@Model.FechaReferencia.Year"
+                    asp-route-mes="@Model.FechaReferencia.Month">
+                    @FormatearFecha(transaccionesPorSemana.FechaInicio) ~
+                    @FormatearFecha(transaccionesPorSemana.FechaFin)
+                </a>
+            </td>
+            <td class="activo" style="text-align: right">
+                @transaccionesPorSemana.Ingresos
+            </td>
+            <td class="pasivo" style="text-align: right">
+                @transaccionesPorSemana.Gastos
+            </td>
+        </tr>
+    }
+
+</table>

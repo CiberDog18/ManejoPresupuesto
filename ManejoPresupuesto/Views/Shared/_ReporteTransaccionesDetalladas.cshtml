@@ -1,0 +1,73 @@
+﻿@model ReporteTransaccionesDetalladas
+
+@{
+    var resumenMontos = new ResumenMontosViewModel()
+    {
+      Ingresos = Model.BalanceDepositos,
+      Gastos = Model.BalanceRetiros,
+      Total = Model.Total
+    };
+}
+
+<h1>Movimientos @ViewBag.Cuenta</h1>
+
+<partial name="_NavegarPorMeses" model="@Model.FechaInicio" />
+<partial name="_ResumenMontos" model="@resumenMontos" />
+<!-- Condicional que verifica si no hay transacciones agrupadas -->
+@if (Model.TransaccionesAgrupadas.Count() == 0)
+{
+    <h5>No hay datos para mostrar</h5>
+}
+else
+{
+    <!-- Si hay transacciones agrupadas, se genera una tabla -->
+    <table class="table">
+        <tbody>
+            <!-- Itera sobre cada grupo de transacciones agrupadas por fecha -->
+            @foreach (var transaccionAgrupada in Model.TransaccionesAgrupadas)
+            {
+                <!-- Fila con estilo personalizado para mostrar la fecha de las transacciones -->
+                <tr style="background-color: lightcyan; font-size: 26px">
+                    <td colspan="3">
+                        <span class="badge bg-secondary">
+                            <!-- Muestra el día de la transacción -->
+                            @transaccionAgrupada.FechaTransaccion.Day
+                        </span>
+                        <span class="badge bg-secondary">
+                            <!-- Muestra el día de la semana de la transacción -->
+                            @transaccionAgrupada.FechaTransaccion.ToString("ddd")
+                        </span>
+                    </td>
+                    <!-- Muestra el balance de depósitos y retiros del grupo de transacciones -->
+                    <td class="activo">@transaccionAgrupada.BalanceDepositos.ToString("N")</td>
+                    <td class="pasivo">@transaccionAgrupada.BalanceRetiros.ToString("N")</td>
+
+                </tr>
+                <!-- Se generan las filas para cada transacción individual dentro del grupo -->
+                @foreach (var transaccion in transaccionAgrupada.Transacciones)
+                {
+                    <tr style="vertical-align: middle">
+                        <td>
+                            <!-- Enlace para editar la transacción actual, usando el ID de la transacción -->
+                            <a asp-controller="Transacciones" asp-action="Editar" asp-route-id="@transaccion.id"
+                               asp-route-UrlRetorno="@ViewBag.UrlRetorno">
+                                <i class="bi-pencil"></i>
+                            </a>
+                        </td>
+                        <!-- Muestra la categoría de la transacción -->
+                        <td>@transaccion.Categoria</td>
+                        <!-- Muestra el nombre de la cuenta a la que pertenece la transacción -->
+                        <td>@transaccion.Cuenta</td>
+                        <!-- Muestra el monto si la transacción es un ingreso -->
+                        <td class="activo">@(transaccion.tipoOperacionId == TipoOperacion.Ingreso ? transaccion.Monto.ToString("N"): null)</td>
+                        <!-- Muestra el monto si la transacción es un gasto -->
+                        <td class="pasivo">@(transaccion.tipoOperacionId == TipoOperacion.Gasto ? transaccion.Monto.ToString("N"): null)</td>
+                    </tr>
+                }
+
+
+        }
+        </tbody>
+    </table>
+    
+}

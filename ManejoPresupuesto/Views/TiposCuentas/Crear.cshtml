@@ -1,0 +1,38 @@
+﻿@model TipoCuenta
+@*
+    Se espera que la vista reciba un solo objeto de tipo TipoCuenta
+*@
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h1>Crear Tipo de Cuenta</h1>
+
+<h5>
+    El tipo de cuenta se refiere a como podemos agrupar cuentas.
+    Ejemplos: Prestamos, tarjetas de credito, etc.
+</h5>
+<!-- 
+ ModelOnly significa que solo se incluirán los errores asociados directamente con las propiedades del modelo, 
+y no los errores asociados con el ModelState en general.-->
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-action="Crear" asp-controller="TiposCuentas">
+    <div class="mb-3">
+        <!-- Etiqueta para el campo de entrada 'Nombre'.
+        El atributo 'asp-for' vincula esta etiqueta con la propiedad 'Nombre' del modelo. -->
+        <label asp-for="Nombre" class="form-label"></label>
+        <input class="form-control" asp-for="Nombre" type="text" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+</form>
+
+
+ @section Scripts {
+    <!-- Esta vista parcial contiene scripts de validación de formularios. -->
+<partial name="_ValidationScriptsPartial"/>
+ }

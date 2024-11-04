@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C88A90B7-3ED4-4CE0-9576-129EBEE6DFAE}|ManejoPresupuesto\\ManejoPresupuesto.csproj|c:\\users\\administrador\\source\\repos\\manejopresupuesto\\manejopresupuesto\\views\\transacciones\\calendario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C88A90B7-3ED4-4CE0-9576-129EBEE6DFAE}|ManejoPresupuesto\\ManejoPresupuesto.csproj|solutionrelative:manejopresupuesto\\views\\transacciones\\calendario.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C88A90B7-3ED4-4CE0-9576-129EBEE6DFAE}|ManejoPresupuesto\\ManejoPresupuesto.csproj|c:\\users\\administrador\\source\\repos\\manejopresupuesto\\manejopresupuesto\\controllers\\transaccionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C88A90B7-3ED4-4CE0-9576-129EBEE6DFAE}|ManejoPresupuesto\\ManejoPresupuesto.csproj|solutionrelative:manejopresupuesto\\controllers\\transaccionescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C88A90B7-3ED4-4CE0-9576-129EBEE6DFAE}|ManejoPresupuesto\\ManejoPresupuesto.csproj|c:\\users\\administrador\\source\\repos\\manejopresupuesto\\manejopresupuesto\\models\\eventocalendario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C88A90B7-3ED4-4CE0-9576-129EBEE6DFAE}|ManejoPresupuesto\\ManejoPresupuesto.csproj|solutionrelative:manejopresupuesto\\models\\eventocalendario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Calendario.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\Views\\Transacciones\\Calendario.cshtml",
+              "RelativeDocumentMoniker": "ManejoPresupuesto\\Views\\Transacciones\\Calendario.cshtml",
+              "ToolTip": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\Views\\Transacciones\\Calendario.cshtml",
+              "RelativeToolTip": "ManejoPresupuesto\\Views\\Transacciones\\Calendario.cshtml",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAEkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-04T17:26:08.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TransaccionesController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\Controllers\\TransaccionesController.cs",
+              "RelativeDocumentMoniker": "ManejoPresupuesto\\Controllers\\TransaccionesController.cs",
+              "ToolTip": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\Controllers\\TransaccionesController.cs",
+              "RelativeToolTip": "ManejoPresupuesto\\Controllers\\TransaccionesController.cs",
+              "ViewState": "AQIAADwBAAAAAAAAAAAAAGUBAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T16:59:17.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EventoCalendario.cs",
+              "DocumentMoniker": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\Models\\EventoCalendario.cs",
+              "RelativeDocumentMoniker": "ManejoPresupuesto\\Models\\EventoCalendario.cs",
+              "ToolTip": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\Models\\EventoCalendario.cs",
+              "RelativeToolTip": "ManejoPresupuesto\\Models\\EventoCalendario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T03:20:51.29Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
