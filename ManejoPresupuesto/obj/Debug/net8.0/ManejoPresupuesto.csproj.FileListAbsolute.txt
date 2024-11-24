@@ -77,3 +77,4 @@ C:\Users\Administrador\source\repos\ManejoPresupuesto\ManejoPresupuesto\obj\Debu
 C:\Users\Administrador\source\repos\ManejoPresupuesto\ManejoPresupuesto\obj\Debug\net8.0\ManejoPresupuesto.pdb
 C:\Users\Administrador\source\repos\ManejoPresupuesto\ManejoPresupuesto\obj\Debug\net8.0\ManejoPresupuesto.genruntimeconfig.cache
 C:\Users\Administrador\source\repos\ManejoPresupuesto\ManejoPresupuesto\obj\Debug\net8.0\ref\ManejoPresupuesto.dll
+C:\Users\Administrador\source\repos\ManejoPresupuesto\ManejoPresupuesto\obj\Debug\net8.0\ManejoPresupuesto.sourcelink.json

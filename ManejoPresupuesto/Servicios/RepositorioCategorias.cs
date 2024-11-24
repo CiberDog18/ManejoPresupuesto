@@ -36,10 +36,12 @@ namespace ManejoPresupuesto.Servicios
         /* Método para obtener todas las categorías de un usuario específico desde la base de datos */
         #region Obtener Categorías por Usuario
 
-        public async Task<IEnumerable<Categoria>> Obtener(int usuarioId)
+        public async Task<IEnumerable<Categoria>> Obtener(int usuarioId, PaginacionViewModel paginacion)
         {
             using var connection = new SqlConnection(connectionString);
-            return await connection.QueryAsync<Categoria>(@"SELECT * FROM Categorias WHERE UsuarioId = @usuarioId;",
+            return await connection.QueryAsync<Categoria>(@$"SELECT * FROM Categorias WHERE UsuarioId = @usuarioId 
+            ORDER BY Nombre 
+            OFFSET {paginacion.RecordsASaltar} ROWS FETCH NEXT {paginacion.RecordsPorPagina} ROWS ONLY;",
                 new { usuarioId });
         }
         #endregion
@@ -55,6 +57,12 @@ namespace ManejoPresupuesto.Servicios
                 new { usuarioId, tipoOperacionId });
         }
         #endregion
+
+        public async Task<int> Contar(int usuarioId)
+        {
+            using var connection = new SqlConnection(connectionString);
+            return await connection.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM Categorias WHERE UsuarioId = @usuarioId", new {usuarioId});
+        }
 
         /* Método para obtener una categoría específica de un usuario por su ID */
         #region Obtener Categoría por ID

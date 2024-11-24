@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ManejoPresupuesto.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\wwwroot\\css\\_layoutRegistro.css",
+      "PackagePath": "staticwebassets\\css\\_layoutRegistro.css"
+    },
+    {
       "Id": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\wwwroot\\css\\custom.css",
       "PackagePath": "staticwebassets\\css\\custom.css"
     },

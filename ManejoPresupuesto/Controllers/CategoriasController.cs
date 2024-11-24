@@ -23,11 +23,20 @@ namespace ManejoPresupuesto.Controllers
         /* Acción para mostrar el índice de categorías, obteniendo y pasando las categorías del usuario a la vista */
         #region Acción de Vista para Índice de Categorías
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(PaginacionViewModel paginacion)
         {
             var usuarioId = servicioUsuarios.ObtenerUsuarioId();
-            var categorias = await repositorioCategorias.Obtener(usuarioId);
-            return View(categorias);
+            var categorias = await repositorioCategorias.Obtener(usuarioId, paginacion);
+            var totalCategorias = await repositorioCategorias.Contar(usuarioId);
+            var respuestaVM = new PaginacionRespuesta<Categoria>
+            {
+                Elementos = categorias,
+                Pagina = paginacion.Pagina,
+                RecordsXPagina = paginacion.recordXPagina,
+                CantidadTotalRecords = totalCategorias,
+                BaseURL = "/categorias"
+            };
+            return View(respuestaVM);
         }
         #endregion
 

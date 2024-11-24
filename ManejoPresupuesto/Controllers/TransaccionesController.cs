@@ -2,6 +2,7 @@
 using ClosedXML.Excel;
 using ManejoPresupuesto.Models;
 using ManejoPresupuesto.Servicios;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Data;
@@ -12,7 +13,6 @@ namespace ManejoPresupuesto.Controllers
     public class TransaccionesController : Controller
     {
         /* Declaración de dependencias utilizadas por el controlador para gestionar usuarios, cuentas, categorías, transacciones y reportes */
-        #region Dependencias del controlador
         private readonly IServicioUsuarios servicioUsuarios;
         private readonly IRepositorioCuentas repositorioCuentas;
 
@@ -31,9 +31,7 @@ namespace ManejoPresupuesto.Controllers
             this.mapper = mapper;
             this.servicioReportes = _servicioReportes;
         }
-        #endregion
 
-        #region Reportes por semana y mes
         /* Método para obtener y organizar las transacciones semanales de un usuario específico basado en el mes y año proporcionados */
         #region Reporte Semanal de Transacciones
         public async Task<IActionResult> Semanal(int mes, int año)
@@ -171,9 +169,7 @@ namespace ManejoPresupuesto.Controllers
         }
         #endregion
 
-        #endregion
 
-        #region Reporte Transaccion Excel
 
         /* Acción para renderizar la vista de exportación en Excel */
         #region Acción de vista para Exportar en Excel
@@ -311,9 +307,7 @@ namespace ManejoPresupuesto.Controllers
         }
         #endregion
 
-        #endregion
 
-        #region Calendario
         /* Acción para mostrar la vista del calendario */
         #region Acción de Vista para el Calendario
 
@@ -363,9 +357,7 @@ namespace ManejoPresupuesto.Controllers
             return Json(transacciones);
         }
 
-        #endregion
 
-        #region Crear Transacciones
         /* Acción para mostrar el formulario de creación de transacciones, cargando las cuentas y categorías del usuario */
         #region Acción de Vista para Crear Transacción
         //Se usa principalmente para preparar y mostrar una vista para crear una nueva transacción, cargando previamente las cuentas del usuario actual.
@@ -426,8 +418,6 @@ namespace ManejoPresupuesto.Controllers
         }
         #endregion
 
-        #endregion
-
 
 
         // Acción que recibe el tipo de operación (Ingreso o Gasto) y retorna las categorías asociadas para el usuario
@@ -462,7 +452,6 @@ namespace ManejoPresupuesto.Controllers
         }
         #endregion
 
-        #region Editar Transacciones
         // Acción para mostrar el formulario de edición de una transacción específica, cargando datos de cuentas y categorías del usuario
         #region Acción de Vista para Editar Transacción
         [HttpGet]
@@ -552,7 +541,6 @@ namespace ManejoPresupuesto.Controllers
             }
 
         }
-        #endregion
         #endregion
 
         // Acción para eliminar una transacción específica, validando que pertenezca al usuario y redirigiendo según la URL de retorno

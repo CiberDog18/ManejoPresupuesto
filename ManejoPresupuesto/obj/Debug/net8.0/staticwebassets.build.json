@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MIWeXC2DEa8M4j1lv5haKeVaLohzt5Dc8jV1yTQaML8=",
+  "Hash": "qmnnDM2JHT2WY90hZWNSWereyhRggx1lh3tHbEL/LG4=",
   "Source": "ManejoPresupuesto",
   "BasePath": "_content/ManejoPresupuesto",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ManejoPresupuesto.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\wwwroot\\css\\_layoutRegistro.css",
+      "SourceId": "ManejoPresupuesto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\wwwroot\\",
+      "BasePath": "_content/ManejoPresupuesto",
+      "RelativePath": "css/_layoutRegistro.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\_layoutRegistro.css"
     },
     {
       "Identity": "C:\\Users\\Administrador\\source\\repos\\ManejoPresupuesto\\ManejoPresupuesto\\wwwroot\\css\\custom.css",
