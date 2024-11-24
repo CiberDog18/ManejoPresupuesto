@@ -14,7 +14,7 @@ _Para poder inicializar el sistema se requiere lo siguiente :_
 
 ### Instalación 🔧
 ```
-- Ejecutar la Query .sql, para crear la base de datos
+- Ejecutar la Query DataBase.sql, para crear la base de datos
 - Cambiar el servidor de base de datos al perteneciente a su equipo, en la ruta: appsettings.Development.json, en la linea
 "Server=Ciber\\SQLEXPRESS2;Database=ManejoPresupuesto;Integrated Security=True;TrustServerCertificate=True"
 -Ejecutar el programa
